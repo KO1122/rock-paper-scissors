@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+
+        function capitalize(word) {
+            const lower = word.toLowerCase();
+            return word.charAt(0).toUpperCase() + lower.slice(1);
+        }
+
+        function getComputerChoice() {
+            const choices = ["rock", "paper", "scissors"];
+            const randomizer = Math.floor(Math.random() * choices.length);
+            return choices[randomizer];
+        }
+
+        function playRound(playerSelection, computerSelection) {
+
+            let playerLowerSelection = playerSelection.toLowerCase();
+
+            // If player and computer choose the same option 
+            if (playerLowerSelection === computerSelection) {
+                return "Tie";
+            }
+
+            // If player beats computer 
+            else if ((playerLowerSelection==="rock" && computerSelection==="scissors") || (playerLowerSelection==="scissors" && computerSelection==="paper") || (playerLowerSelection==="paper" && computerSelection==="rock")) {
+                return 'Player win';
+            }
+
+            // If computer beats player 
+            else if ((computerSelection==="rock" && playerLowerSelection==="scissors") || (computerSelection==="scissors" && playerLowerSelection==="paper") || (computerSelection==="paper" && playerLowerSelection==="rock")) {
+                return 'Player lose';
+            }
+        }
+
+        function game() {
+
+            playerScore = 0;
+            computerScore = 0;
+
+            for (let i = 0; i < 5; i++) {
+                let playerSelection = prompt("Input rock, paper or scissors");
+                const computerSelection = getComputerChoice();
+                
+                if (playRound(playerSelection, computerSelection) === 'Player win') {
+                    playerScore++;
+
+                    let playerWin = `You win this round! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}`;
+
+                    console.log(playerWin);
+
+                }
+                else if (playRound(playerSelection, computerSelection) === 'Player lose') {
+                    computerScore++;
+
+                    let playerLose = `You lose this round! ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}`;
+
+                    console.log(playerLose);
+                }
+                else if (playRound(playerSelection, computerSelection) === 'Tie') {
+                    console.log("It's a tie!");
+                }
+            }
+
+            if (playerScore > computerScore) {
+                    console.log("Player wins!");
+                }
+            
+            else if (computerScore > playerScore) {
+                console.log("Computer wins!");
+            }
+
+            else {
+                console.log("Neither wins!");
+            }
+        }
+
+        game();
+    </script>
+</body>
+</html>
