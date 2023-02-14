@@ -5,84 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/8421a0a1ce.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <script>
+    <div class="title">ROCK PAPER SCISSORS</div>
 
-        function capitalize(word) {
-            const lower = word.toLowerCase();
-            return word.charAt(0).toUpperCase() + lower.slice(1);
-        }
+    <h1>First to five wins the game!</h1>
 
-        function getComputerChoice() {
-            const choices = ["rock", "paper", "scissors"];
-            const randomizer = Math.floor(Math.random() * choices.length);
-            return choices[randomizer];
-        }
+    <div class="results">
+        <div>
+            Player: 
+            <span class="player-score">0</span>
+        </div>
+        <div>
+            Computer: 
+            <span class="computer-score">0</span>
+        </div>
+    </div>
 
-        function playRound(playerSelection, computerSelection) {
+    <div class="result-round"></div>
+    <div class="result-matchup"></div>
+    <div class="result-game"></div>
 
-            let playerLowerSelection = playerSelection.toLowerCase();
+    <div class="choices">
+        <button class="choice" data-value="rock">🗿</button>
+        <button class="choice" data-value="paper">🧻</button>
+        <button class="choice" data-value="scissors">✂️</button>
+    </div>
 
-            // If player and computer choose the same option 
-            if (playerLowerSelection === computerSelection) {
-                return "Tie";
-            }
-
-            // If player beats computer 
-            else if ((playerLowerSelection==="rock" && computerSelection==="scissors") || (playerLowerSelection==="scissors" && computerSelection==="paper") || (playerLowerSelection==="paper" && computerSelection==="rock")) {
-                return 'Player win';
-            }
-
-            // If computer beats player 
-            else if ((computerSelection==="rock" && playerLowerSelection==="scissors") || (computerSelection==="scissors" && playerLowerSelection==="paper") || (computerSelection==="paper" && playerLowerSelection==="rock")) {
-                return 'Player lose';
-            }
-        }
-
-        function game() {
-
-            playerScore = 0;
-            computerScore = 0;
-
-            for (let i = 0; i < 5; i++) {
-                let playerSelection = prompt("Input rock, paper or scissors");
-                const computerSelection = getComputerChoice();
-                
-                if (playRound(playerSelection, computerSelection) === 'Player win') {
-                    playerScore++;
-
-                    let playerWin = `You win this round! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}`;
-
-                    console.log(playerWin);
-
-                }
-                else if (playRound(playerSelection, computerSelection) === 'Player lose') {
-                    computerScore++;
-
-                    let playerLose = `You lose this round! ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}`;
-
-                    console.log(playerLose);
-                }
-                else if (playRound(playerSelection, computerSelection) === 'Tie') {
-                    console.log("It's a tie!");
-                }
-            }
-
-            if (playerScore > computerScore) {
-                    console.log("Player wins!");
-                }
-            
-            else if (computerScore > playerScore) {
-                console.log("Computer wins!");
-            }
-
-            else {
-                console.log("Neither wins!");
-            }
-        }
-
-        game();
-    </script>
+    <footer>
+        <a href="https://github.com/" target="_blank">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    </footer>
 </body>
 </html>
