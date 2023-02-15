@@ -12,22 +12,28 @@
 <body>
     <div class="title">ROCK PAPER SCISSORS</div>
 
-    <h1>First to five wins the game!</h1>
+    <div class="heading">First to five wins the game!</div>
 
     <div class="results">
-        <div>
-            Player: 
-            <span class="player-score">0</span>
+        <div class="player-results">
+            <div>
+                Player: 
+                <span class="player-score">0</span>
+            </div>
+            <div class="player-choice">?</div>
         </div>
-        <div>
-            Computer: 
-            <span class="computer-score">0</span>
+
+        <div class="computer-results">
+            <div>
+                Computer: 
+                <span class="computer-score">0</span>
+            </div>
+            <div class="computer-choice">?</div>
         </div>
     </div>
 
     <div class="result-round"></div>
     <div class="result-matchup"></div>
-    <div class="result-game"></div>
 
     <div class="choices">
         <button class="choice" data-value="rock">🗿</button>
@@ -35,8 +41,14 @@
         <button class="choice" data-value="scissors">✂️</button>
     </div>
 
+    <div class="reset-button-center">
+        <button class="reset-button">
+            <i class="fa-solid fa-rotate-right"></i>
+        </button>
+    </div>
+
     <footer>
-        <a href="https://github.com/" target="_blank">
+        <a href="https://github.com/KO1122/rock-paper-scissors" target="_blank">
             <i class="fa-brands fa-github"></i>
         </a>
     </footer>
